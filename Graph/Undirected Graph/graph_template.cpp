@@ -49,4 +49,5 @@ int main()
         addEdge(v,from,to);
     }
     showAdjList(v,n);
+    return 0;
 }
