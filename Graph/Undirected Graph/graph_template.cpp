@@ -43,15 +43,15 @@ int main()
         return -1;
     }
     system("cls");
-    while(E--)
+    for(int i=0;i<E;i++)
     {
         cout<<"\nEdge "<<E<<" between:\t"; cin>>from;
         cout<<"and:\t"; cin>>to;
         if(from>V||to>V)
-    {
-        cerr<<"Nodes are not defined for the edge.\nPlease check your inputs.";
-        return -1;
-    }
+        {
+            cerr<<"Nodes are not defined for the edge.\nPlease check your inputs.";
+            return -1;
+        }
         addEdge(G,from,to);
     }
     showAdjList(G,V);
