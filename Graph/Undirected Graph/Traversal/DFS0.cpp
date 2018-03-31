@@ -1,4 +1,4 @@
-//UNDIRECTED GRAPH TEMPLATE
+//UNDIRECTED UNWEIGHTED GRAPH DFS TRAVERSAL
 #include <iostream>
 #include <cstdlib>
 #include <vector>
