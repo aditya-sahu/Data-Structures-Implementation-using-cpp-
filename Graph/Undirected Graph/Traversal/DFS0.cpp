@@ -1,4 +1,4 @@
-//UNDIRECTED GRAPH DFS TRAVERSAL
+//UNDIRECTED GRAPH TEMPLATE
 #include <iostream>
 #include <cstdlib>
 #include <vector>
@@ -37,22 +37,26 @@ void callDFS(int n,vector<int> adjlist[])
 }
 int main()
 {
-    int n,e,from,to;
+    int V,E,from,to;
     cout<<"\nGRAPH IMPLEMENTATION by Aditya Sahu\nDate:\t31-Mar-18\n";
-    cout<<"\vEnter number of vertices:\t"; cin>>n;
-    vector<int> v[n];
-    cout<<"\nEnter number of edges:\t"; cin>>e;
-    if(e>((n*(n-1))/2))
+    cout<<"\vEnter number of vertices:\t"; cin>>V;
+    vector<int> G[V];
+    cout<<"\nEnter number of edges:\t"; cin>>E;
+    if(E>((V*(V-1))/2))
     {
         cerr<<"Check the number of edges";
         return -1;
     }
     system("cls");
-    while(e--)
+    for(int i=0;i<E;i++)
     {
-        cout<<"\nEdge between:\t"; cin>>from; cout<<"and:\t"; cin>>to;
-        addEdge(v,from,to);
+        cout<<"\nEdge "<<i+1<<" between:\t"; cin>>from; cout<<"and:\t"; cin>>to;
+        if(from>V||to>V)
+        {
+            cerr<<"Nodes are not defined for the edge.\nPlease check your inputs.";
+            return -1;
+        }
+        addEdge(G,from,to);
     }
-    callDFS(n,v);
-    return 0;
+    callDFS(V,G);
 }
