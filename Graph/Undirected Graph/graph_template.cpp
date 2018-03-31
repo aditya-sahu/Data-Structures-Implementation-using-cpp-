@@ -45,7 +45,7 @@ int main()
     system("cls");
     for(int i=0;i<E;i++)
     {
-        cout<<"\nEdge "<<E<<" between:\t"; cin>>from;
+        cout<<"\nEdge "<<i+1<<" between:\t"; cin>>from;
         cout<<"and:\t"; cin>>to;
         if(from>V||to>V)
         {
