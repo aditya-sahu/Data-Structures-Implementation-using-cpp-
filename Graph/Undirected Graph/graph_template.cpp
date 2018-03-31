@@ -1,4 +1,4 @@
-//UNDIRECTED GRAPH TEMPLATE
+//UNDIRECTED UNWEIGHTED GRAPH TEMPLATE
 #include <iostream>
 #include <cstdlib>
 #include <vector>
@@ -32,22 +32,28 @@ void showAdjList(vector<int> adjlist[], int n)
 }
 int main()
 {
-    int n,e,from,to;
+    int V,E,from,to;
     cout<<"\nGRAPH IMPLEMENTATION by Aditya Sahu\nDate:\t31-Mar-18\n";
-    cout<<"\vEnter number of vertices:\t"; cin>>n;
-    vector<int> v[n];
-    cout<<"\nEnter number of edges:\t"; cin>>e;
-    if(e>((n*(n-1))/2))
+    cout<<"\vEnter number of vertices:\t"; cin>>V;
+    vector<int> G[V];
+    cout<<"\nEnter number of edges:\t"; cin>>E;
+    if(E>((V*(V-1))/2))
     {
         cerr<<"Check the number of edges";
         return -1;
     }
     system("cls");
-    while(e--)
+    while(E--)
     {
-        cout<<"\nEdge between:\t"; cin>>from; cout<<"and:\t"; cin>>to;
-        addEdge(v,from,to);
+        cout<<"\nEdge "<<E<<" between:\t"; cin>>from;
+        cout<<"and:\t"; cin>>to;
+        if(from>V||to>V)
+    {
+        cerr<<"Nodes are not defined for the edge.\nPlease check your inputs.";
+        return -1;
     }
-    showAdjList(v,n);
+        addEdge(G,from,to);
+    }
+    showAdjList(G,V);
     return 0;
 }
